@@ -72,7 +72,14 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, box-shadow 0.3s;
+    width:70vw;
   }
+  /* @media (min-width: 768px) {
+    .add-startup-section {
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Adds spacing between buttons */
+    
   
   /* Hover effect for Add Startup button */
   .add-btn:hover {
@@ -81,9 +88,9 @@ body {
   }
   
   /* Responsive design */
-  @media (max-width: 768px) {
+  @media (min-width: 712px) {
     .add-startup-section {
-      flex-direction: column;
+      flex-direction: row;
       gap: 10px;
     }
   

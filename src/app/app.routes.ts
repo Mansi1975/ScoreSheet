@@ -30,6 +30,12 @@ export const routes: Routes = [
       return import('./startups/startups.component').then((m) => m.StartupsComponent)
   }
 },
+{
+    path: 'scoresheet',
+    loadComponent: () => {
+        return import('./scoresheet/scoresheet.component').then((m) => m.ScoresheetComponent)
+    }
+  },
 
 ];
 // import { NgModule } from '@angular/core';
