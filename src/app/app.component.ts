@@ -5,14 +5,14 @@ import { LoginComponent } from "./login/login.component";
 
 @Component({
   selector: 'app-root',
+  standalone: false,
   
-  imports: [RouterOutlet, HomeComponent, LoginComponent],
   template: `
     <main>
     <!-- <app-home/>
     <app-login/> -->
 
-    <router-outlet />
+    <router-outlet/>
     </main>
   `,
   styles: [`

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,8 +18,26 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit" class="login-btn">Login</button>
+            <button type="submit" class="login-btn" >Login</button>
         </form>
     </div>
 </body>
-</html>
+</html> -->
+<div class="login-container">
+    <h2>Login</h2>
+    <form (submit)="validateLogin()">
+        <div class="input-group">
+            <label for="eurekaid">EurekaID:</label>
+            <input type="text" id="eurekaid" [(ngModel)]="eurekaid" name="eurekaid" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" [(ngModel)]="password" name="password" required>
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+    </form>
+    <div *ngIf="message" [style.color]="messageColor" style="margin-top: 10px; font-size: 14px;">
+        {{ message }}
+    </div>
+</div>
+
