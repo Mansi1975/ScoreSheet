@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fintech-stps',
@@ -9,10 +10,13 @@ import { CommonModule } from '@angular/common';
   styleUrl:'./fintech-stps.css'
 })
 export class FintechStpsComponent {
+
+  constructor(private router: Router) {}
+
   startups = ['Startup A', 'Startup B', 'Startup C', 'Startup D']; // List of startups
   selectedStartups: string[] = []; // To store selected startups
   showPopup = false; // To control the visibility of the popup
-  router: any;
+ 
 
   togglePopup(): void {
     this.showPopup = !this.showPopup;

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-health-stps',
@@ -9,9 +10,11 @@ import { CommonModule } from '@angular/common';
   styleUrl:'./health-stps.css'
 })
 export class HealthStpsComponent {
+  constructor(private router: Router) {}
   startups = ['Startup A', 'Startup B', 'Startup C', 'Startup D']; // List of startups
   selectedStartups: string[] = []; // To store selected startups
   showPopup = false; // To control the visibility of the popup
+  
 
   togglePopup(): void {
     this.showPopup = !this.showPopup;
@@ -32,6 +35,9 @@ export class HealthStpsComponent {
 
   onSelectedStartupClick(startup: string): void {
     console.log(`You clicked on: ${startup}`); // Log or perform additional actions when a selected startup is clicked
+    console.log('Navigating to healthcare');
+    this.router.navigate(['healthcare']);
+  
   }
 
 }

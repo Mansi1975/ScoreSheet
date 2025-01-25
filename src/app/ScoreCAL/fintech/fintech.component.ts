@@ -1,15 +1,20 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-fintech',
   imports: [],
-  template: `
-    <p>
-      fintech works!
-    </p>
-  `,
-  styles: ``
+  templateUrl:'./fintech.html', 
+  styleUrl:'./fintech.css'
 })
-export class FintechComponent {
+export class FintechComponent implements OnInit {
+  startupName: string | null = null;
 
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    // Get the startup name from the route parameter
+    this.startupName = this.route.snapshot.paramMap.get('startupName');
+  }
 }

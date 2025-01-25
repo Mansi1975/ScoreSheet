@@ -67,6 +67,33 @@ export const routes: Routes = [
     path: 'fintech',
       loadComponent: () => import('./ScoreCAL/fintech/fintech.component').then((m) => m.FintechComponent),
   },
+  {
+    path: 'healthcare',
+      loadComponent: () => import('./ScoreCAL/healthcare/healthcare.component').then((m) => m.HealthcareComponent),
+  },
+  {
+    path: 'bussi',
+      loadComponent: () => import('./ScoreCAL/bussi/bussi.component').then((m) => m.BussiComponent),
+  },
+  {
+    path: 'es',
+      loadComponent: () => import('./ScoreCAL/es/es.component').then((m) => m.EsComponent),
+  },
+  {
+    path: 'lsc',
+      loadComponent: () => import('./ScoreCAL/lsc/lsc.component').then((m) => m.LscComponent),
+  },
+  {
+    path: 'pi',
+      loadComponent: () => import('./ScoreCAL/pi/pi.component').then((m) => m.PiComponent),
+  },
+  {
+    path: 'soc',
+      loadComponent: () => import('./ScoreCAL/soc/soc.component').then((m) => m.SocComponent),
+  },
+  
+  
+
 
 ];
 

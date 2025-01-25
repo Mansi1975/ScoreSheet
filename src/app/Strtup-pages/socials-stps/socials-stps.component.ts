@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-socials-stps',
@@ -9,6 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl:'./socials-stps.css'
 })
 export class SocialsStpsComponent {
+  constructor(private router: Router) {}
   startups = ['Startup A', 'Startup B', 'Startup C', 'Startup D']; // List of startups
   selectedStartups: string[] = []; // To store selected startups
   showPopup = false; // To control the visibility of the popup
@@ -32,6 +34,8 @@ export class SocialsStpsComponent {
 
   onSelectedStartupClick(startup: string): void {
     console.log(`You clicked on: ${startup}`); // Log or perform additional actions when a selected startup is clicked
+    console.log('Navigating to soc');
+    this.router.navigate(['soc']);
   }
 
 }
