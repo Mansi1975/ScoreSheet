@@ -1,33 +1,42 @@
 import { Component } from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import { Router, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common'; 
 
 @Component({
   selector: 'app-login',
-  standalone: false,
- 
+  standalone: true,
+   imports: [FormsModule, CommonModule],
   templateUrl:'./login.html', 
   styleUrl:'./login.css'
 })
 export class LoginComponent {
- 
+
   eurekaid = '';
   password = '';
   message = '';
   messageColor = 'red';
-
+  
   validCredentials = [
-    { eurekaid: 'user1', password: 'pass1' },
-    { eurekaid: 'user2', password: 'pass2' },
-    { eurekaid: 'user3', password: 'pass3' },
+    { eurekaid: 'EU24269780', password: 'pass1' },
+    { eurekaid: 'EU24269781', password: 'pass2' },
+    { eurekaid: 'EU24269782', password: 'pass3' },
   ];
 
+  constructor(private router: Router) {}
   validateLogin() {
+  
+    
     const user = this.validCredentials.find(
-      (cred) => cred.eurekaid === this.eurekaid && cred.password === this.password
+      (cred: { eurekaid: string; password: string; }) => cred.eurekaid === this.eurekaid && cred.password === this.password
     );
 
     if (user) {
       this.message = 'Login successful!';
       this.messageColor = 'green';
+      setTimeout(() => {
+        this.router.navigate(['/tracks']);
+      }, 1000);
     } else {
       this.message = 'Invalid credentials. Please try again.';
       this.messageColor = 'red';

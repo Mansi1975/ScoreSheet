@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAN-IIT</title>
+</head>
+<body>
+    <div class="startup-container">
+        <h1>FinTech</h1>
+      
+        <!-- Buttons for Add/Remove and Add Startup -->
+        <div class="add-startup-section">
+          
+          <button class="add-btn" (click)="togglePopup()">Add Startup</button>
+        </div>
+      
+        <!-- Popup for Startups List -->
+        <div class="popup" *ngIf="showPopup">
+          <div class="popup-content">
+            <h2>List of Startups</h2>
+            <ul>
+              <li *ngFor="let startup of startups">
+                <button (click)="handleStartupClick(startup)">
+                  Add {{ startup }}
+                </button>
+              </li>
+            </ul>
+            <button class="close-btn" (click)="togglePopup()">Close</button>
+          </div>
+        </div>
+      
+        <!-- Display Selected Startups -->
+        <div class="selected-startups" *ngIf="selectedStartups.length > 0">
+          <h2>Selected Startups</h2>
+          <ul>
+            <li *ngFor="let startup of selectedStartups">
+              <button class="startup-btn" (click)="onSelectedStartupClick(startup)">
+                {{ startup }}
+              </button>
+              <button class="remove-btn" (click)="removeStartup(startup)">Remove</button>
+            </li>
+          </ul>
+        </div>
+      
+        <!-- Message when no startups are selected -->
+        <p *ngIf="selectedStartups.length === 0 && !showPopup">
+          No startups added yet. Click "Add Startup" to get started.
+        </p>
+    </div>
+   
+</body>
+</html>

@@ -1,7 +1,8 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-
+import { TracksComponent } from './tracks/tracks.component';
+import { NgModule } from '@angular/core';
   
 
 export const routes: Routes = [
@@ -24,12 +25,37 @@ export const routes: Routes = [
         return import('./tracks/tracks.component').then((m) => m.TracksComponent)
     }
 },
+
 {
-  path: 'startups',
-  loadComponent: () => {
-      return import('./startups/startups.component').then((m) => m.StartupsComponent)
-  }
+  path: 'fintech-stps',
+    loadComponent: () => import('./Strtup-pages/fintech-stps/fintech-stps.component').then((m) => m.FintechStpsComponent),
 },
+{
+  path: 'health-stps',
+    loadComponent: () => import('./Strtup-pages/health-stps/health-stps.component').then((m) => m.HealthStpsComponent),
+},
+{
+  path: 'lgsc-stps',
+    loadComponent: () => import('./Strtup-pages/lgsc-stps/lgsc-stps.component').then((m) => m.LGSCStpsComponent),
+},
+{
+  path: 'ens-stps',
+    loadComponent: () => import('./Strtup-pages/ens-stps/ens-stps.component').then((m) => m.ENSStpsComponent),
+},
+{
+  path: 'paniit-stps',
+    loadComponent: () => import('./Strtup-pages/paniit-stps/paniit-stps.component').then((m) => m.PaniitStpsComponent),
+},
+{
+  path: 'socials-stps',
+    loadComponent: () => import('./Strtup-pages/socials-stps/socials-stps.component').then((m) => m.SocialsStpsComponent),
+},
+{
+  path: 'business-stps',
+    loadComponent: () => import('./Strtup-pages/business-stps/business-stps.component').then((m) => m.BusinessStpsComponent),
+},
+
+
 {
     path: 'scoresheet',
     loadComponent: () => {
@@ -37,19 +63,17 @@ export const routes: Routes = [
     }
   },
 
+  {
+    path: 'fintech',
+      loadComponent: () => import('./ScoreCAL/fintech/fintech.component').then((m) => m.FintechComponent),
+  },
+
 ];
-// import { NgModule } from '@angular/core';
-// import { RouterModule, Routes } from '@angular/router';
-// import { LoginComponent } from './login/login.component';
 
-// const routes: Routes = [
-//   { path: 'login', component: LoginComponent },
-//   { path: '', redirectTo: '/home', pathMatch: 'full' }
-// ];
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
+  })
+  export class AppRoutingModule {}
 
-// @NgModule({
-//   imports: [RouterModule.forRoot(routes)],
-//   exports: [RouterModule]
-// })
-// export class AppRoutingModule { }
 

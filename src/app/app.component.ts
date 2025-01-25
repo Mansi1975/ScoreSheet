@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
-
+import { TracksComponent } from './tracks/tracks.component';
+import {FormsModule} from '@angular/forms'
 @Component({
   selector: 'app-root',
-  standalone: false,
-  
+  standalone: true,
+  imports: [RouterOutlet, FormsModule],
   template: `
     <main>
     <!-- <app-home/>

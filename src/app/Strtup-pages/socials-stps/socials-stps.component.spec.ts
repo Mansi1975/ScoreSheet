@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StartupsComponent } from './startups.component';
+import { SocialsStpsComponent } from './socials-stps.component';
 
-describe('StartupsComponent', () => {
-  let component: StartupsComponent;
-  let fixture: ComponentFixture<StartupsComponent>;
+describe('SocialsStpsComponent', () => {
+  let component: SocialsStpsComponent;
+  let fixture: ComponentFixture<SocialsStpsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StartupsComponent]
+      imports: [SocialsStpsComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(StartupsComponent);
+    fixture = TestBed.createComponent(SocialsStpsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
