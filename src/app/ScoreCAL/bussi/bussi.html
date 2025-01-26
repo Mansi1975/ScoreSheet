@@ -11,50 +11,51 @@
         <h1>Score Sheet</h1>
         <p><strong>Judge:</strong></p>
         <div class="left-align">
-            <p><strong>Startup:</strong></p>
-            <p><strong>Eureka ID:</strong></p>
+          <p><strong>Startup:</strong></p>
+          <p><strong>Eureka ID:</strong></p>
         </div>
-
-        <p><strong>Pitch deck - <input type="text" placeholder=""></strong></p>
-        
+      
+        <p><strong>Pitch deck - <input type="text" [(ngModel)]="pitchDeck" placeholder="Enter pitch deck"></strong></p>
+      
         <div class="criteria">
-            <div class="row">
-                <span>Startup Idea and USP</span>
-                <input type="text" placeholder="">
-            </div>
-            <div class="row">
-                <span>Target Market and Size</span>
-                <input type="text" placeholder="">
-            </div>
-            <div class="row">
-                <span>Growth Potential</span>
-                <input type="text" placeholder="">
-            </div>
-            <div class="row">
-                <span>FRevenue Model</span>
-                <input type="text" placeholder="">
-            </div>
-            <div class="row">
-                <span>Stage of startup and future plans</span>
-                <input type="text" placeholder="">
-            </div>
-            <div class="row">
-                <span>Team members</span>
-                <input type="text" placeholder="">
-            </div>
+          <div class="row" *ngFor="let criterion of criteria; let i = index">
+            <span>{{ criterion }}</span>
+            <input
+              type="number"
+              min="0"
+              max="5"
+              [(ngModel)]="scores[i]"
+              (change)="updateTotal()"
+              placeholder="Enter score"
+            />
+          </div>
+          <div class="row">
+            <span>Team members</span>
+            <input
+              type="number"
+              [(ngModel)]="teamMembers"
+              placeholder="Enter number of team members"
+            />
+          </div>
         </div>
-
+      
         <div class="total">
-            <span>Total :</span>
-            <input type="text" placeholder="">
+          <span>Total:</span>
+          <input type="text" [value]="total" readonly />
         </div>
-
+      
         <div class="feedback">
-            <label for="feedback">Feedback</label>
-            <textarea id="feedback" rows="3"></textarea>
+          <label for="feedback">Feedback</label>
+          <textarea
+            id="feedback"
+            rows="3"
+            [(ngModel)]="feedback"
+            [class.highlight]="!feedback.trim() && showFeedbackError"
+            placeholder="Enter feedback here"
+          ></textarea>
         </div>
-
-        <button class="save-btn">Save</button>
-    </div>
+      
+        <button class="save-btn" (click)="save()">Save</button>
+      </div>
 </body>
 </html>
