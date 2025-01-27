@@ -3,7 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { TracksComponent } from './tracks/tracks.component';
 import { NgModule } from '@angular/core';
-  
+import { FintechStpsComponent } from './Strtup-pages/fintech-stps/fintech-stps.component';
 
 export const routes: Routes = [
   {
@@ -27,9 +27,10 @@ export const routes: Routes = [
 },
 
 {
-  path: 'fintech-stps',
-    loadComponent: () => import('./Strtup-pages/fintech-stps/fintech-stps.component').then((m) => m.FintechStpsComponent),
-},
+  path: 'fintech-stps', component: FintechStpsComponent},
+    // loadComponent: () => import('./Strtup-pages/fintech-stps/fintech-stps.component').then((m) => m.FintechStpsComponent),
+  {path:'**', redirectTo:'finetech-stps'},
+  
 {
   path: 'health-stps',
     loadComponent: () => import('./Strtup-pages/health-stps/health-stps.component').then((m) => m.HealthStpsComponent),

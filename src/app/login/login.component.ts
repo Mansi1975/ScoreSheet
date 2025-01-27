@@ -107,14 +107,15 @@ constructor(private authService: AuthService,private router: Router) {}
   message = '';
   messageColor = 'red';
   errorMessage: string='';
+  startups:any[] = [];
   
- 
+
 
  async login() {
-  console.log('login clicked');
+  // console.log('login clicked');
     try{
       const loginSuccess = await this.authService.login(this.eurekaid, this.password);
-      console.log('loginSuccess:', loginSuccess);
+      // console.log('loginSuccess:', loginSuccess);
 
       if (loginSuccess) {
         const role = this.authService.getUserRole();
@@ -122,6 +123,9 @@ constructor(private authService: AuthService,private router: Router) {}
           this.router.navigate(['/fintech-jury']); // Navigate to jury page
         } else if (role === 'admin') {
           this.router.navigate(['/fintech-stps']); // Navigate to admin page
+          // this.authService.getStartups().subscribe((startups) => {
+          //   this.startups = startups;
+          // }); // Fetch startups
         }
       } else {
         this.errorMessage = 'Invalid credentials!';
