@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common'; 
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-jury',
@@ -14,6 +15,7 @@ export class JuryComponent {
   password = '';
   message = '';
   messageColor = 'red';
+  errorMessage: string='';
   
   validCredentials = [
     { eurekaid: 'JU24269780', password: 'pass1' },
@@ -21,7 +23,7 @@ export class JuryComponent {
     { eurekaid: 'JU24269782', password: 'pass3' },
   ];
 
-  constructor(private router: Router) {}
+  constructor(private authService: AuthService,private router: Router) {}
   validateLogin() {
   
     
@@ -40,6 +42,22 @@ export class JuryComponent {
       this.messageColor = 'red';
     }
   }
+
+  // login() {
+  //   if (this.authService.login(this.eurekaid, this.password)) {
+  //     const role = this.authService.getUserRole();
+  //     if (role === 'jury') {
+  //       this.router.navigate(['/fintech-stps']); // Navigate to user1's page
+  //     } else if (role === 'admin-login') {
+  //       this.router.navigate(['/fintech_jury']); // Navigate to user2's page
+  //     }
+  //   } else {
+  //     this.errorMessage = 'Invalid credentials!';
+  //   }
+  // }
+
+
+
 }
 
 
