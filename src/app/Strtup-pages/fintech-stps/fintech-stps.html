@@ -10,7 +10,7 @@
         <h1>FinTech</h1>
       
         <!-- Buttons for Add/Remove and Add Startup -->
-        <div class="add-startup-section">
+        <div class="add-startup-section" *ngIf="userRole === 'admin-login'">
           
           <button class="add-btn" (click)="togglePopup()">Add Startup</button>
         </div>

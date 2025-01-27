@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
   styleUrl:'./fintech-stps.css'
 })
 export class FintechStpsComponent {
+admin: any;
+login: any;
+userRole: any;
 
   constructor(private router: Router) {}
 
