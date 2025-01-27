@@ -47,19 +47,14 @@ export class LoginComponent {
   //   }
   // }
 
- eurekaid = '';
-  password = '';
-  message = '';
-  messageColor = 'red';
-  errorMessage: string='';
-  
-  // validCredentials = [
+
+   // validCredentials = [
   //   { eurekaid: 'JU24269780', password: 'pass1' },
   //   { eurekaid: 'JU24269781', password: 'pass2' },
   //   { eurekaid: 'JU24269782', password: 'pass3' },
   // ];
 
-  constructor(private authService: AuthService,private router: Router) {}
+  
   // validateLogin() {
   
     
@@ -79,22 +74,80 @@ export class LoginComponent {
   //   }
   // }
 
-  login() {
-    if (this.authService.login(this.eurekaid, this.password)) {
-      const role = this.authService.getUserRole();
-      if (role === 'jury') {
-        this.router.navigate(['/fintech-jury']); // Navigate to user1's page
-      } else if (role === 'admin-login') {
-        this.router.navigate(['/fintech-stps']); // Navigate to user2's page
+// constructor(private authService: AuthService,private router: Router) {}
+//  eurekaid = '';
+//   password = '';
+//   message = '';
+//   messageColor = 'red';
+//   errorMessage: string='';
+  
+ 
+
+//   login() {
+//     if (this.authService.login(this.eurekaid, this.password)) {
+//       const role = this.authService.getUserRole();
+//       if (role === 'jury') {
+//         this.router.navigate(['/fintech-jury']); // Navigate to user1's page
+//       } else if (role === 'admin-login') {
+//         this.router.navigate(['/fintech-stps']); // Navigate to user2's page
+//       }
+//     } else {
+//       this.errorMessage = 'Invalid credentials!';
+//     }
+//   }
+
+
+
+// }
+
+
+constructor(private authService: AuthService,private router: Router) {}
+ eurekaid = '';
+  password = '';
+  message = '';
+  messageColor = 'red';
+  errorMessage: string='';
+  
+ 
+
+ async login() {
+  console.log('login clicked');
+    try{
+      const loginSuccess = await this.authService.login(this.eurekaid, this.password);
+      console.log('loginSuccess:', loginSuccess);
+
+      if (loginSuccess) {
+        const role = this.authService.getUserRole();
+        if (role === 'jury') {
+          this.router.navigate(['/fintech-jury']); // Navigate to jury page
+        } else if (role === 'admin') {
+          this.router.navigate(['/fintech-stps']); // Navigate to admin page
+        }
+      } else {
+        this.errorMessage = 'Invalid credentials!';
       }
-    } else {
-      this.errorMessage = 'Invalid credentials!';
+    } catch (error) {
+      this.errorMessage = 'An error occurred during login. Please try again.';
     }
   }
+    }
+  
+  
+  
+  // if (this.authService.login(this.eurekaid, this.password)) {
+    //   const role = this.authService.getUserRole();
+    //   if (role === 'jury') {
+    //     this.router.navigate(['/fintech-jury']); // Navigate to user1's page
+    //   } else if (role === 'admin-login') {
+    //     this.router.navigate(['/fintech-stps']); // Navigate to user2's page
+    //   }
+    // } else {
+    //   this.errorMessage = 'Invalid credentials!';
+    // }
+  
 
 
 
-}
 
 
 
