@@ -1,12 +1,12 @@
 html,
 body {
-  background-color: white;
-  margin-top: -5%;
+  /*background-color: white;
+   margin-top: -5%;
   margin-left: -5%;
   margin-right: -5%;
   padding-bottom: 10%;
   height: 100%vh;
-  width: 100%vw;
+  width: 100%vw; */
 }
 
 body {
@@ -16,7 +16,8 @@ body {
 }
 
 .sec1 {
-  margin-top: 270px;
+  margin-top: 350px;
+  
 }
 #head {
   display: flex;

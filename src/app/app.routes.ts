@@ -91,6 +91,11 @@ export const routes: Routes = [
     path: 'soc',
       loadComponent: () => import('./ScoreCAL/soc/soc.component').then((m) => m.SocComponent),
   },
+
+  {
+    path: 'fintech-jury',
+      loadComponent: () => import('./Jury_stpspage/fintech-jury/fintech-jury.component').then((m) => m.FintechJuryComponent),
+  },
   
   
 

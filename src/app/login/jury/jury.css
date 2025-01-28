@@ -1,0 +1,74 @@
+/* General body and page styling */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* Login container */
+  .login-container {
+    margin-top: 50%;
+    margin-left: 25%;
+    background-color: #88b4fc;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 400px;
+    
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+  
+  }
+  
+  /* Heading styling */
+  h2 {
+    color: #121314; /* Blue color */
+    margin-bottom: 20px;
+    
+  }
+  
+  /* Input field styling */
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    background-color: #88b4fc;
+    border-color: aliceblue;
+    width: 100%;
+    padding: 8px;
+    border: 2px solid white;
+    border-radius: 12px;
+    box-sizing: border-box;
+  }
+  
+  /* Button styling */
+  .login-btn {
+    width: 40%;
+  
+    padding: 5px;
+    background-color: #ffffff; /* Blue color */
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .login-btn:hover {
+    background-color: #1e5ab7; /* Darker blue on hover */
+  }
+  

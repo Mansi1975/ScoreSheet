@@ -4,12 +4,13 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-fintech-stps',
-  imports: [CommonModule, FormsModule],
-  templateUrl:'./fintech-stps.html', 
-  styleUrl:'./fintech-stps.css'
+  selector: 'app-fintech-jury',
+  imports: [FormsModule, CommonModule],
+  templateUrl:'./fintech-jury.html', 
+  styleUrl:'./fintech-jury.css'
 })
-export class FintechStpsComponent {
+export class FintechJuryComponent {
+
 admin: any;
 login: any;
 userRole: any;
@@ -45,3 +46,4 @@ userRole: any;
   }
 
 }
+

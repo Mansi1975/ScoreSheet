@@ -10,20 +10,27 @@ body {
 
 /* Login container */
 .login-container {
-  margin-top: 10%;
-  margin-left: 35%;
+  margin-top: 50%;
+  margin-left: 25%;
   background-color: #88b4fc;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 400px;
+  height: 400px;
+  
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-evenly;
+
 }
 
 /* Heading styling */
 h2 {
   color: #121314; /* Blue color */
   margin-bottom: 20px;
+  
 }
 
 /* Input field styling */
