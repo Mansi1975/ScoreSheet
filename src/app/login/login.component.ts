@@ -122,7 +122,7 @@ constructor(private authService: AuthService,private router: Router) {}
         if (role === 'jury') {
           this.router.navigate(['/fintech-jury']); // Navigate to jury page
         } else if (role === 'admin') {
-          this.router.navigate(['/fintech-stps']); // Navigate to admin page
+          this.router.navigate(['/tracks']); // Navigate to admin page
           // this.authService.getStartups().subscribe((startups) => {
           //   this.startups = startups;
           // }); // Fetch startups

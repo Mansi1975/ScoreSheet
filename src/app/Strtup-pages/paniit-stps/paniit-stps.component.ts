@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-paniit-stps',
@@ -9,11 +10,26 @@ import { Router } from '@angular/router';
   templateUrl:'./paniit-stps.html', 
   styleUrl:'./paniit-stps.css'
 })
-export class PaniitStpsComponent {
-  constructor(private router: Router) {}
-  startups = ['Startup A', 'Startup B', 'Startup C', 'Startup D']; // List of startups
-  selectedStartups: string[] = []; // To store selected startups
-  showPopup = false; // To control the visibility of the popup
+export class PaniitStpsComponent implements OnInit{
+  // constructor(private router: Router) {}
+  // startups = ['Startup A', 'Startup B', 'Startup C', 'Startup D']; // List of startups
+  // selectedStartups: string[] = []; // To store selected startups
+  // showPopup = false; // To control the visibility of the popup
+
+  startups: string[] = [];
+  selectedStartups: string[] = [];
+  showPopup = false;
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+  async ngOnInit(): Promise<void> {
+    try {
+      this.startups = await this.authService.getStartups();
+      console.log('Startups loaded in component:', this.startups); // Debugging
+    } catch (error) {
+        console.error('Error in Oninit:', error);
+      }
+    }
 
   togglePopup(): void {
     this.showPopup = !this.showPopup;
