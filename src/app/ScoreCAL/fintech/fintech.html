@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FinTech Scores</title>
-    <link rel="stylesheet" href="fintech.css">
-</head>
-<body>
+    <link rel="stylesheet" href="fintech.css" />
+  </head>
+  <body>
     <!-- <div class="score-sheet">
         <h1>Score Sheet</h1>
         <p><strong>Judge:</strong></p>
@@ -57,59 +57,64 @@
         <button class="save-btn">Save</button>
     </div> -->
 
-     <div class="score-sheet">
-        <h1>Score Sheet</h1>
-        <p><strong>Judge:</strong></p>
-        <div class="left-align">
-          <p><strong>Startup:</strong></p>
-          <p><strong>Eureka ID:</strong></p>
-        </div>
-      
-        <p><strong>Pitch deck - <input type="text" [(ngModel)]="pitchDeck" placeholder="Enter pitch deck"></strong></p>
-      
-        <div class="criteria">
-          <div class="row" *ngFor="let criterion of criteria; let i = index">
-            <span>{{ criterion }}</span>
-            <input
-              type="number"
-              min="0"
-              max="5"
-              [(ngModel)]="scores[i]"
-              (change)="updateTotal()"
-              placeholder="Enter score"
-            />
-          </div>
-          <div class="row">
-            <span>Team members</span>
-            <input
-              type="number"
-              [(ngModel)]="teamMembers"
-              placeholder="Enter number of team members"
-            />
-          </div>
-        </div>
-      
-        <div class="total">
-          <span>Total:</span>
-          <input type="text" [value]="total" readonly />
-        </div>
-      
-        <div class="feedback">
-          <label for="feedback">Feedback</label>
-          <textarea
-            id="feedback"
-            rows="3"
-            [(ngModel)]="feedback"
-            [class.highlight]="!feedback.trim() && showFeedbackError"
-            placeholder="Enter feedback here"
-          ></textarea>
-        </div>
-      
-        <button class="save-btn" (click)="save()">Save</button>
+    <div class="score-sheet">
+      <h1>Score Sheet</h1>
+      <p><strong>Judge:</strong></p>
+      <div class="left-align">
+        <p><strong>Startup:</strong></p>
+        <p><strong>Eureka ID:</strong></p>
       </div>
 
-      
+      <p>
+        <strong
+          >Pitch deck -
+          <input
+            style="border-color: rgb(8, 141, 217)"
+            type="text"
+            [(ngModel)]="pitchDeck"
+            placeholder="Enter pitch deck"
+        /></strong>
+      </p>
 
+      <div class="criteria">
+        <div class="row" *ngFor="let criterion of criteria; let i = index">
+          <span>{{ criterion }}</span>
+          <input
+            type="number"
+            min="0"
+            max="5"
+            [(ngModel)]="scores[i]"
+            (change)="updateTotal()"
+            placeholder="Enter score"
+          />
+        </div>
+        <div class="row">
+          <span>Team members</span>
+          <input
+            type="number"
+            [(ngModel)]="teamMembers"
+            placeholder="Enter number of team members"
+          />
+        </div>
+      </div>
 
-</body>
+      <div class="total">
+        <span>Total:</span>
+        <input type="text" [value]="total" readonly />
+      </div>
+
+      <div class="feedback">
+        <label for="feedback">Feedback</label>
+        <textarea
+          id="feedback"
+          rows="3"
+          [(ngModel)]="feedback"
+          [class.highlight]="!feedback.trim() && showFeedbackError"
+          placeholder="Enter feedback here"
+        ></textarea>
+      </div>
+
+      <button class="save-btn" (click)="save()">Save</button>
+    </div>
+  </body>
 </html>
